@@ -33,14 +33,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
-
 // required for passport
 app.use(session({
 	secret: 'inutraders',
 	resave: true,
 	saveUninitialized: true
  } )); // session secret
-console.log("test");
 
 app.use(passport.initialize());
 app.use(passport.session());

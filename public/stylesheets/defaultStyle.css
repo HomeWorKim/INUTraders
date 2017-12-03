@@ -5,8 +5,7 @@
 
 body{
 
-/*  font-family: 'Nanum Barun Gothic', serif; */
-  font-family: 'Noto Sans', 'Noto Sans KR', sans-serif;
+ font-family: 'Noto Sans', 'Nanum Barun Gothic','Noto Sans KR' , sans-serif;
 /*  background-color: #f8f9fa; */
 padding-top: 50px;
 padding-bottom: 80px;

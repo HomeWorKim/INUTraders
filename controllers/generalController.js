@@ -1,10 +1,8 @@
 var squel = require('squel');
 
 exports.saveUrl = function(req, res){
-  console.log("1redirectto : " +req.session.redirectTo);
-    console.log("original : " + req.originalUrl);
     req.session.redirectTo = req.originalUrl;
-    console.log(req.session.redirectTo);
+    console.log('savedUrl ' + req.session.redirectTo);
 };
 
 exports.getRedirecturl = function(req){
