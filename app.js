@@ -13,7 +13,6 @@ var LocalStrategy = require('passport-local').Strategy;
 var async = require('async');
 
 var mysql = require('mysql');
-var dbconfig   = require('./config/.dbconfig.js');
 var dbSQL = require('./config/dbTables.js');
 var pool = require('./config/dbConnection.js');
 
@@ -28,8 +27,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -43,7 +40,7 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
  } )); // session secret
-
+console.log("test");
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -61,18 +58,18 @@ app.use('/about', about);
 app.use('/trade', trade);
 app.use('/auth', auth);
 
-pool.getConnection(function(err, connection){
-  if(err) throw err;
-  else{
-      console.log('connected as id ' + connection.threadId);
-
-      connection.query(dbSQL.createTrade, function(err, result, fields){
-        if(err) throw err;
-        console.log(result);
-      });
-    connection.release();
-  }
-});
+// pool.getConnection(function(err, connection){
+//   if(err) throw err;
+//   else{
+//       console.log('connected as id ' + connection.threadId);
+//
+//       connection.query(dbSQL.createTrade, function(err, result, fields){
+//         if(err) throw err;
+//         console.log(result);
+//       });
+//     connection.release();
+//   }
+// });
 
 
 // catch 404 and forward to error handler
