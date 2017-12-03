@@ -6,14 +6,13 @@
 </head>
 <body>
   <%- include ../partials/header-nav.ejs %>
-
     <main>
       <div class="container">
         <div class="h3 font-weight-bold">
           <%=tradeData.TradeCategory%>
         </div><br>
     <div class="row">
-      <div class="col-auto">
+      <div class="col-md-12">
       <i class="material-icons" style="vertical-align: middle">local_mall</i>
       <label class="col-form-label">거래 물품</label>
       <div class="row">
@@ -54,7 +53,7 @@
         <p class="text-muted text-center">-- 완료된 거래입니다 --</p>
     <%}%>
     <div class="row justify-content-end">
-      <%if(isAuthenticated && tradeData.AuthorID == currentUser.UserID){ %>
+      <%if(isAuthenticated && ((tradeData.AuthorID == currentUser.UserID) || (currentUser.IsAdmin == 1))){ %>
     <div class="col-auto ml-auto">
       <% if(tradeData.TradeStatus == 1){ %>
       <button type="submit" class="btn btn-success font-weight-bold" data-toggle="modal" data-target="#modalConfirmTradeDone">거래완료</button>
@@ -131,8 +130,8 @@
                   <h5 class="mt-0 mb-2 font-weight-bold"><%=comment.NickName%><small class="text-muted pull-right"><i class="fa fa-clock-o"></i> <%=new Date(comment.CreatedDate).toLocaleDateString();%></small></h5>
                   <form class="form-group" action="/<%=path%>/<%=tradeData.TradeID%>/comment/<%=comment.CommentID%><%=urlQuery%>&_method=DELETE" method="post">
                   <p><%=comment.CommentContent%>
-                    <%if(isAuthenticated && comment.UserID == currentUser.UserID){ %>
-                    <button type="submit" class="btn btn-success font-weight-bold pull-right" data-toggle="modal" data-target="#modalConfirmDelete">삭제</button>
+                    <%if(isAuthenticated && ((comment.UserID == currentUser.UserID) || (currentUser.IsAdmin == 1))){ %>
+                    <button type="submit" class="btn btn-success font-weight-bold pull-right">삭제</button>
                   <%}%>
                   </form>
                   </p>
@@ -160,7 +159,7 @@
         <br>
 </div>
 </div>
-<%if(isAuthenticated && tradeData.AuthorID == currentUser.UserID){
+<%if(isAuthenticated && ((tradeData.AuthorID == currentUser.UserID) || (currentUser.IsAdmin == 1))){
     if(tradeData.TradeStatus == 1){ %>
 <!--Modal: Trade Close-->
 <div class="modal fade" id="modalConfirmTradeDone" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -213,6 +212,7 @@
 </div>
 <!-- Modal: modal -->
 <%}%>
+
 
 
     </main>

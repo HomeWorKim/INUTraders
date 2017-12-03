@@ -51,13 +51,16 @@
               </div>
             </form>
             <hr>
-            <strong class="text-primary"> 물품 카테고리  </strong>
+            <div class="col-md-12">
+            <strong class="text-primary col"> 물품 카테고리  </strong>
+
               <a href="/<%=path%>?ItemCategory=전체&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold b">전체</a>
               <a href="/<%=path%>?ItemCategory=강의교재&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold">강의교재</a>
               <a href="/<%=path%>?ItemCategory=일반도서&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold">일반도서</a>
               <a href="/<%=path%>?ItemCategory=디지털기기&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold">디지털기기</a>
               <a href="/<%=path%>?ItemCategory=의류잡화&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold">의류잡화</a>
               <a href="/<%=path%>?ItemCategory=기타등등&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold">기타등등</a>
+            </div>
             <hr>
 <%
 tradeData.forEach(function (trade, i, arr){
