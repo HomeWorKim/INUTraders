@@ -42,13 +42,61 @@ exports.buildSearchQuery = function(req){
       values.push("%" + req.query.search + "%");
     }
   }
-
- // squel.select().field('*').from('TradeListView').where()
-
-
  return {
    where: conditions.length ?
             conditions.join(' AND ') : '1',
    values: values
  };
+};
+
+exports.getImgSrc = function(TradeData){
+  var m,
+    imgsrc,
+    urls = [],
+    str = TradeData.Content;
+    // rex = /<img.*?src="([^">]*\/([^">]*?))".*?>/g;
+
+    // var re = /<img.*?src='(.*?)'/;
+    var re = /<img[^>]*src="([^"]*)"/g;
+    var results = re.exec(str);
+    if(results){
+      imgsrc = results[1];
+    } else {
+      var ItemCat = TradeData.ItemCatID;
+      if(ItemCat == 1){
+        imgsrc = '/images/bookseducation.jpeg';
+      } else if(ItemCat == 2){
+        imgsrc = '/images/books.jpeg';
+      } else if(ItemCat == 3){
+        imgsrc = '/images/digitalthings.jpg';
+      } else if(ItemCat == 4){
+        imgsrc = '/images/clothes.jpeg';
+      } else if(ItemCat == 5){
+        imgsrc = '/images/things.jpeg';
+      }
+    }
+    console.log(imgsrc);
+    return imgsrc;
+    // while (m = rex.exec(str)){
+    //   urls.push(m[1]);
+    // }
+
+    // if(urls[0]){
+    //   imgsrc = urls[0];
+    // }else {
+    //   var ItemCat = TradeData.ItemCatID;
+    //   if(ItemCat == 1){
+    //     imgsrc = '/images/bookseducation.jpeg';
+    //   } else if(ItemCat == 2){
+    //     imgsrc = '/images/books.jpeg';
+    //   } else if(ItemCat == 3){
+    //     imgsrc = '/images/digitalthings.jpg';
+    //   } else if(ItemCat == 4){
+    //     imgsrc = '/images/clothes.jpeg';
+    //   } else if(ItemCat == 5){
+    //     imgsrc = '/images/things.jpeg';
+    //   }
+    // } return imgsrc;
+
+
 };

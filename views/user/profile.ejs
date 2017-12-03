@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <%- include ../partials/head.ejs %>
+
+</head>
+
+<body>
+<%- include ../partials/header-nav.ejs %>
+  <!--Main layout-->
+  <main class="mt-5">
+    <!--Main container-->
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="col-12 h3 font-weight-bold">
+        <%if(isAuthenticated && userData.UserID == currentUser.UserID){%>
+          <%=userData.NickName%>
+        </div><br>
+      </div>
+      <div class="row my-2">
+        <div class="col-lg-8 order-lg-2">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="nav-item">
+                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">프로필</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link">정보 수정</a>
+                </li>
+            </ul>
+            <div class="tab-content py-4">
+                <div class="tab-pane active" id="profile">
+                    <h5 class="mb-4 font-weight-bold">프로필</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                          <h6><strong>아이디</strong></h6>
+                          <p><%=userData.UserID%></p><br>
+                          <h6><strong>닉네임</strong></h6>
+                          <p><%=userData.NickName%></p><br>
+                          <h6><strong>소개</strong></h6>
+                          <p><%=userData.Introduce%></p>
+                        </div>
+                        <div class="col-md-6 mr-auto">
+                          <h6><strong>가입일</strong></h6>
+                          <p><%=new Date(userData.RegistrationDate).toLocaleDateString();%></p><br>
+                          <h6><strong>연락처 정보</strong></h6>
+                          <% if(userData.UserPhone){%>
+                            <h6>전화번호</h6>
+                            <p><%=userData.UserPhone%></p>
+                          <%}%>
+                          <% if(userData.UserEmail){%>
+                            <h6>이메일</h6>
+                            <p><%=userData.UserEmail%></p>
+                          <%}%>
+                          <% if(userData.OtherContact){%>
+                            <h6>기타 연락수단</h6>
+                            <p><%=userData.OtherContact%></p>
+                          <%}
+                            if(!userData.UserPhone && !userData.UserEmail && !userData.OtherContact){%>
+                              <p class="text-info">작성자의 연락처 정보가 존재하지 않습니다.</p>
+                          <%}%>
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+
+                <div class="tab-pane" id="edit">
+                  <form action='/user/profile/<%=userData.UserID%>?_method=PUT' method="post">
+                    <div class="form-group row">
+                      <div class="col">
+                        <label for="Reg_UserID">학번</label>
+                        <input type="text" class="form-control" id="Reg_UserID" value="<%=userData.UserID%>" name="Reg_UserID" placeholder="학번" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col">
+                        <label for="Reg_Password">비밀번호</label>
+                        <input type="password" class="form-control" id="Reg_Password" name="Reg_Password" placeholder="비밀번호">
+                        <small id="emailHelp" class="form-text text-muted">비밀번호를 수정하지 않으시려면 입력칸을 비워주세요.</small>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col">
+                        <label for="Reg_userID">닉네임</label>
+                        <input type="text" class="form-control" id="Reg_UserID" name="Reg_Nickname" placeholder="닉네임" value="<%=userData.NickName%>" required>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col">
+                        <label for="Reg_userID">전화번호</label>
+                        <input type="text" class="form-control" id="Reg_UserID" name="Reg_UserPhone" placeholder="전화번호" value="<%=userData.UserPhone%>">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col">
+                        <label for="inputEmail3">이메일</label>
+                        <input type="email" class="form-control" id="inputEmail3" name="Reg_UserEmail" placeholder="이메일" value="<%=userData.UserEmail%>">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col">
+                        <label for="Reg_userID">기타 연락수단</label>
+                        <input type="text" class="form-control" id="Reg_UserID" name="Reg_OtherContact" placeholder="다른 연락수단이 있으면 입력해주세요" value="<%=userData.OtherContact%>">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col">
+                        <label for="Reg_userID">자기소개</label>
+                        <textarea type="text" class="form-control" id="Reg_Introduce" name="Reg_Introduce" placeholder="간단한 소개"><%=userData.Introduce%></textarea>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="form-group row mt-1">
+                      <div class="col-auto align-center">
+                        <button type="submit" class="btn btn-primary btn-outline-primary">수정하기</button>
+                      </div>
+                    </div>
+                    </form>
+                </div>
+                <%} else{%>
+                  <h3>잘못된 접근입니다.</h3>
+                  <%}%>
+            </div>
+        </div>
+    </div>
+<!--Main container-->
+  </main>
+<!--Main layout-->
+
+<%- include ../partials/footer.ejs %>
+
+
+</body>
+</html>

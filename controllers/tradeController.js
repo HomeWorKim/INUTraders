@@ -44,7 +44,7 @@ exports.trade_list = function(req, res, option){
       sqlQuery.values.push(limit);
       sqlQuery.values.push(offset);
       connection.query('SELECT * FROM TradeListView WHERE ' + sqlQuery.where + ' ORDER BY CreatedDate DESC LIMIT ? OFFSET ?', sqlQuery.values, function(err, result, fields){
-
+        console.log('trade_list');
         if(err) throw err;
         res.render('../views/TradeBoard/trade_list', {
           tradeData: result,
@@ -73,10 +73,10 @@ exports.trade_detail = function(req, res, option, callback){
       const myURL = new URL(req.originalUrl, 'https://'+req.hostname);
 
       connection.query('SELECT * FROM TradeDetailView WHERE TradeID = ?', req.params.TradeID,  function(err, traderesult, fields){
-        console.log(traderesult);
+        console.log('trade_detail');
         if(err) throw err;
         connection.query('SELECT * FROM CommentView WHERE TradeID = ?', req.params.TradeID, function(err, commentresult, fields){
-          console.log(commentresult);
+          console.log('commente');
           var redirectBack = general_controller.getRedirecturl(req);
           general_controller.saveUrl(req, res);
           res.render('../views/TradeBoard/trade_detail', {
@@ -134,8 +134,15 @@ exports.trade_create_post = function(req, res, option){
 
       connection.query('INSERT INTO Trade SET ?', postdata,  function(err, result, fields){
         if(err) throw err;
-        console.log(result);
-        res.redirect('/trade/all');
+        var imgsrc = general_controller.getImgSrc(postdata);
+        var thumbnaildata = {
+          'TradeID' : result.insertId,
+          'ImageSrc' : imgsrc
+        };
+         connection.query("INSERT INTO Thumbnail SET ?", thumbnaildata, function(err, result, fields){
+           if(err) throw err;
+           res.redirect('/trade/all');
+         });
       });
       connection.release();
     }
@@ -163,7 +170,6 @@ exports.trade_update_get = function(req, res, option){
       connection.query('SELECT * FROM Trade WHERE TradeID = ?', req.params.TradeID,  function(err, result, fields){
         if(err) throw err;
         console.log(result);
-        console.log(req.query);
         res.render('../views/TradeBoard/trade_update', {
           tradeData: result[0],
           title: option.title + '수정',
@@ -193,9 +199,16 @@ exports.trade_update_post = function(req, res, option){
       };
       connection.query('UPDATE Trade SET ? WHERE TradeID = ?', [updateData, req.params.TradeID],  function(err, result, fields){
         if(err) throw err;
+        var imgsrc = general_controller.getImgSrc(updateData);
+        var thumbnaildata = {
+          'ImageSrc' : imgsrc
+        };
+         connection.query("UPDATE Thumbnail SET ? WHERE TradeID = ?", [thumbnaildata, req.params.TradeID] , function(err, result, fields){
+           if(err) throw err;
         console.log(result);
         res.redirect('/'+option.path);
       });
+    });
     }
     connection.release();
   });

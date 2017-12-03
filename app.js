@@ -20,6 +20,7 @@ var main = require('./routes/main');
 var about = require('./routes/about');
 var trade = require('./routes/trade');
 var auth = require('./routes/auth');
+var user = require('./routes/user');
 
 var app = express();
 
@@ -55,6 +56,7 @@ app.use('/', main);
 app.use('/about', about);
 app.use('/trade', trade);
 app.use('/auth', auth);
+app.use('/user', user);
 
 // pool.getConnection(function(err, connection){
 //   if(err) throw err;

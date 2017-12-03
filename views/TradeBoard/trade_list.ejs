@@ -51,6 +51,14 @@
               </div>
             </form>
             <hr>
+            <strong class="text-primary"> 물품 카테고리  </strong>
+              <a href="/<%=path%>?ItemCategory=전체&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold b">전체</a>
+              <a href="/<%=path%>?ItemCategory=강의교재&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold">강의교재</a>
+              <a href="/<%=path%>?ItemCategory=일반도서&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold">일반도서</a>
+              <a href="/<%=path%>?ItemCategory=디지털기기&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold">디지털기기</a>
+              <a href="/<%=path%>?ItemCategory=의류잡화&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold">의류잡화</a>
+              <a href="/<%=path%>?ItemCategory=기타등등&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold">기타등등</a>
+            <hr>
 <%
 tradeData.forEach(function (trade, i, arr){
       if(i%3 == 0){ %>
@@ -60,7 +68,6 @@ tradeData.forEach(function (trade, i, arr){
       %>
                 <!--First column-->
                 <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
-
                     <!--Card-->
                     <% if(trade.TradeStatus == 1){ %>
                     <div class="card mb-3 border border-primary rounded">
@@ -74,8 +81,7 @@ tradeData.forEach(function (trade, i, arr){
                           </div>
                         <% } %>
                         <!--Card image-->
-                        <img class="img-fluid" src="/images/main_2.jpg" alt="Card image cap">
-
+                        <img class="card-img-top" src="<%=trade.ImageSrc%>">
                         <!--Card content-->
                         <div class="card-body">
 
@@ -176,6 +182,7 @@ tradeData.forEach(function (trade, i, arr){
     </main>
 
 <%- include ../partials/footer.ejs %>
+<%- include ../partials/forTradeList.ejs%>
 
 </body>
 </html>
