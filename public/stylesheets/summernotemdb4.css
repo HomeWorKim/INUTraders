@@ -1,0 +1,96 @@
+/***
+	Summernote with Bootstrap 4 and Material Design Bootstrap (MDB)
+	by djibe
+	JSFiddle : https://jsfiddle.net/djibe89/rh5rxh9c/
+***/
+
+
+/*Set a "summernote" class to the div containing your summernote div to make my style work
+<div class="form-group summernote"><!--Summernote class to style editor-->
+	<textarea id="courrier-examen"></textarea>
+</div>
+*/
+
+
+/* To have css in root/css folder and font in root/font folder*/
+
+
+/*
+@font-face {
+    font-family: "summernote";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../font/summernote.eot?ad8d7e2d177d2473aecd9b35d16211fb");
+    src: url("../font/summernote.eot?#iefix") format("embedded-opentype"), url("../font/summernote.woff?ad8d7e2d177d2473aecd9b35d16211fb") format("woff"), url("../font/summernote.ttf?ad8d7e2d177d2473aecd9b35d16211fb") format("truetype")
+}*/
+
+
+/*textarea look on focus, prefer js box-shadow on .summernote*/
+
+
+/*.note-editor.note-frame .note-editing-area .note-editable:focus {
+	background: #FAFBFD;
+}*/
+
+
+/*placeholder style*/
+/*
+.note-placeholder {
+    position: absolute;
+    top: 90px;
+    left: 95px;
+    font-size: 34px;
+    color: #e4e5e7;
+    display: none;
+    pointer-events: none;
+}
+*/
+
+/*Toolbar panel*/
+/*
+.note-editor .note-toolbar {
+    background: #F5F5F5;
+    border-bottom: 1px solid #c2cad8;
+}
+
+.summernote .panel-primary>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+*/
+
+/*Buttons from toolbar*/
+/*
+.summernote .btn-default {
+    background: white !important;
+}
+
+.summernote .btn-default:hover {
+    background: #4285F4 !important;
+}
+
+.summernote .btn-default.active {
+    background: #0B51C5 !important;
+}
+*/
+
+.summernote .btn {
+  background-color: #fff;
+  color: black !important;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  box-shadow: none !important;
+    /*
+    white-space: nowrap !important;
+    font-size: 14px;
+    line-height: 1;
+    user-select: none;
+    */
+}
+
+/*
+.summernote .btn:hover {
+    cursor: pointer;
+}
+*/

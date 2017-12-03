@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include ../partials/head.ejs %>
+</head>
+<body>
+  <%- include ../partials/header-nav.ejs %>
+
+    <main>
+      <div class="container">
+        <!--Page heading-->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="h2-responsive">거래 수정 </h1>
+            </div>
+        </div>
+        <!--/.Page heading-->
+<hr>
+  <form action='/<%=path%>/<%=tradeData.TradeID%>/update?_method=PUT' method="post">
+    <div class="form-row">
+      <div class="col-lg-5">
+        <i class="material-icons" style="vertical-align: middle">label</i>
+        <select id="tradeCatSelect" class="custom-select mb-2 mr-sm-2 mb-sm-0" name="Trade_TradeCategory">
+          <option>거래 종류</option>
+          <option value="1">교환</option>
+          <option value="2">판매</option>
+          <option value="3">구매</option>
+        </select>
+        <select id="itemCatSelect" class="custom-select mb-2 mr-sm-2 mb-sm-0" name="Trade_ItemCategory">
+          <option>물품 카테고리</option>
+          <option value="1">강의교재</option>
+          <option value="2">일반도서</option>
+          <option value="3">디지털기기</option>
+          <option value="4">의류잡화</option>
+          <option value="5">기타등등</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <i class="material-icons" style="vertical-align: middle">local_mall</i>
+      거래 희망 물품
+      <small class="form-text text-muted">거래 물품은 무엇이든 될 수 있습니다!</small>
+      <div class="row">
+        <div class="col-lg-3">
+          <input name="Trade_Ihave" type="text" class="form-control"  placeholder="소유한 물품" value="<%=tradeData.Ihave%>">
+        </div>
+        <div class="col-lg-auto text-center">
+            <i class="material-icons" style="font-size: 48px;line-height:4rem;vertical-align: middle">swap_horiz</i>
+        </div>
+        <div class="col-lg-3">
+          <input name="Trade_Iwant" type="text" class="form-control"  placeholder="희망하는 물품" value="<%=tradeData.Iwant%>">
+        </div>
+      </div>
+      <i class="material-icons" style="vertical-align: middle">title</i>
+      제목
+      <input name="Trade_Title" type="text" class="form-control"  placeholder="간단한 제목을 적어주세요." value="<%=tradeData.Title%>">
+    </div>
+    <br>
+
+    <div class="form-group">
+      <i class="material-icons" style="vertical-align: middle">mode_edit</i>
+      <label>내용</label>
+      <div class="summernote">
+        <textarea id="summernote" name="Trade_Content"><%=tradeData.Content%></textarea>
+      </div>
+    </div>
+    <div class="text-right">
+      <a href="/<%=path%>/<%=tradeData.TradeID%>?page=<%=currentPage%>">
+      <button type="button" class="btn btn-lg align-bottom font-weight-bold" >취소</button></a> &nbsp;
+      <button type="submit" class="btn btn-lg btn-primary font-weight-bold">수정</button>
+    </div>
+  </form>
+</div>
+    </main>
+
+<%- include ../partials/footer.ejs %>
+
+<%- include ../partials/inc_summernote.ejs %>
+<script>
+  $("#tradeCatSelect > [value=" + <%=tradeData.TradeCatID%> + "]").attr("selected", "true");
+
+  $("#itemCatSelect > [value=" + <%=tradeData.ItemCatID%> + "]").attr("selected", "true");
+</script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!--Main Navigation-->
+<header>
+  <!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<div class="container">
+    <!-- Navbar brand -->
+    <a class="navbar-brand font-weight-bold" href="/"><strong><span class="text-primary">INU</span> TRADERS</strong></a> &nbsp;&nbsp;&nbsp;
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li id="btn-Home" class="nav-item">
+                <a class="nav-link" href="/"><h5 class="h5-responsive"><Strong>홈</Strong></h5></a>
+            </li>
+            <li id="btn-All" class="nav-item">
+                <a class="nav-link" href="/trade/all"><h5 class="h5-responsive"><Strong>거래</Strong></h5></a>
+            </li>
+            <li id="btn-Exchange" class="nav-item">
+                <a class="nav-link" href="/trade/exchange"><h5 class="h5-responsive"><Strong>교환</Strong></h5></a>
+            </li>
+            <li id="btn-Sell" class="nav-item">
+                <a class="nav-link" href="/trade/sell"><h5 class="h5-responsive"><Strong>판매</Strong></h5></a>
+            </li>
+            <li id="btn-Buy" class="nav-item">
+                <a class="nav-link" href="/trade/buy"><h5 class="h5-responsive"><Strong>구매</Strong></h5></a>
+            </li>
+        </ul>
+        <!-- Links -->
+        <% if(isAuthenticated){%>
+          <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle font-weight-bold" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%=currentUser.NickName%>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item btn" href="/user/<%=currentUser.UserID%>">내 계정</a>
+              <a class="dropdown-item btn" href="/auth/logout">로그아웃</a>
+            </div>
+          </div>
+        <%} else {%>
+          <div class="ml-auto">
+            <a href="/auth/login" class="btn btn-primary font-weight-bold">로그인</a>
+            <a href="/auth/signup" class="btn btn-primary font-weight-bold">회원가입</a>
+          </div>
+        <%}%>
+        <%# <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLR">
+            로그인/회원가입
+        </button>%>
+        <!-- Search form -->
+        <%# <form class="form-inline">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        </form>%>
+    </div>
+    <!-- Collapsible content -->
+</div>
+</nav>
+<!--/.Navbar-->
+
+
+</header>
+<!--Main Navigation-->
+
+<%- include ./authModal.ejs %>

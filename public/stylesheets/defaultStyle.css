@@ -1,0 +1,123 @@
+@font-face{font-family:'Nanum Barun Gothic'; src: url('//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Regular.woff'), url('/font/NanumBarunGothic.woff') ;}
+
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+
+body{
+
+/*  font-family: 'Nanum Barun Gothic', serif; */
+  font-family: 'Noto Sans', 'Noto Sans KR', sans-serif;
+/*  background-color: #f8f9fa; */
+padding-top: 50px;
+padding-bottom: 80px;
+min-height: 100vh;
+position: relative;
+margin: 0;
+}
+
+.commentlist > li{
+  border-bottom: 1px solid #DDD;
+}
+.nav-tabs { border-bottom: 2px solid #DDD; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#footer {
+    background-color: #3a3f46;
+    color: white;
+}
+
+#footer .row {
+}
+
+#footer .info{
+    text-align: justify;
+    color: #afb0b1;
+}
+
+#footer ul {
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+}
+
+#footer h5 {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#footer .logo{
+    margin-top: 10px;
+}
+
+#footer .second-bar .logo a{
+    color:white;
+    font-size: 28px;
+    float: left;
+    font-weight: bold;
+    line-height: 68px;
+    margin: 0;
+    padding: 0;
+}
+
+#footer a {
+    color: #d2d1d1;
+    text-decoration: none;
+}
+
+#footer a:hover,
+#footer a:focus {
+    text-decoration: none;
+    color: white;
+}
+
+#footer .second-bar {
+    text-align: center;
+    background-color: #33373e;
+    text-align: center;
+}
+
+#footer .second-bar a {
+    font-size: 22px;
+    color: #9fa3a9;
+    padding: 10px;
+    transition: 0.2s;
+    line-height: 68px;
+}
+
+#footer .second-bar a:hover {
+    text-decoration: none;
+}
+
+#footer .social-icons {
+    float:right;
+}
+
+
+#footer .facebook:hover {
+    color: #0077e2;
+}
+
+#footer .google:hover {
+    color: #ef1a1a;
+}
+
+#footer .twitter:hover {
+    color: #00aced;
+}
+
+@media screen and (max-width: 767px) {
+    #footer {
+        text-align: center;
+    }
+
+    #footer .info{
+        text-align: center;
+    }
+}

@@ -1,0 +1,274 @@
+<!-- Modal -->
+<div class="modal fade" id="modalLR" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+          <ul class="nav nav-tabs nav-fill" role="tablist">
+              <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fa fa-user mr-1"></i> 로그인</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fa fa-user-plus mr-1"></i> 회원가입</a>
+              </li>
+          </ul>
+
+          <!-- Tab panels -->
+          <div class="tab-content">
+              <!--Panel 7-->
+              <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+                  <!--Body-->
+                  <div class="modal-body mb-1">
+                    <form action='/auth/login' method="post">
+                      <div class="form-group row">
+                        <label for="Login_userID" class="col-lg-3 col-form-label">학번</label>
+                        <div class="col">
+                          <input type="text" class="form-control" id="Reg_UserID" name="Reg_UserID" placeholder="학번">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-lg-3 col-form-label">비밀번호</label>
+                        <div class="col">
+                          <input type="password" class="form-control" id="inputEmail3" placeholder="비밀번호">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="Reg_userID" class="col-lg-3 col-form-label">닉네임</label>
+                        <div class="col">
+                          <input type="text" class="form-control" id="Reg_UserID" name="Reg_UserID" placeholder="닉네임">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="Reg_userID" class="col-lg-3 col-form-label">휴대폰번호</label>
+                        <div class="col">
+                          <input type="text" class="form-control" id="Reg_UserID" name="Reg_UserID" placeholder="휴대폰번호">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-lg-3 col-form-label">Email</label>
+                        <div class="col-sm-9">
+                          <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="Reg_userID" class="col-lg-3 col-form-label">기타<br> 연락수단</label>
+                        <div class="col">
+                          <input type="text" class="form-control" id="Reg_UserID" name="Reg_UserID" placeholder="다른 연락수단이 있으면 입력해주세요">
+                        </div>
+                      </div>
+                      <div class="form-group row mt-1">
+                        <div class="col-lg-4"></div>
+                        <div class="col-auto">
+                          <button type="submit" class="btn btn-primary btn-outline-primary">회원가입 <i class="fa fa-sign-in ml-1"></i></button>
+                        </div>
+                        <div class="col-auto ml-auto">
+                          <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+
+                      </form>
+                      <%# <div class="row">
+                        <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                    </div>%>
+                  </div>
+                  <!--Footer-->
+                  <%# <div class="modal-footer display-footer">
+                      <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                  </div>%>
+
+              </div>
+              <!--/.Panel 7-->
+
+              <!--Panel 8-->
+              <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+                  <!--Body-->
+                  <div class="modal-body mb-1">
+                    <form action='/auth/signup' method="post">
+                      <div class="form-group row">
+                        <label for="Reg_userID" class="col-lg-3 col-form-label">학번</label>
+                        <div class="col">
+                          <input type="text" class="form-control" id="Reg_UserID" name="Reg_UserID" placeholder="학번">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-lg-3 col-form-label">비밀번호</label>
+                        <div class="col">
+                          <input type="password" class="form-control" id="inputEmail3" name="Reg_Password" placeholder="비밀번호">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="Reg_userID" class="col-lg-3 col-form-label">닉네임</label>
+                        <div class="col">
+                          <input type="text" class="form-control" id="Reg_UserID" name="Reg_Nickname" placeholder="닉네임">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="Reg_userID" class="col-lg-3 col-form-label">휴대폰번호</label>
+                        <div class="col">
+                          <input type="text" class="form-control" id="Reg_UserID" name="Reg_UserPhone" placeholder="휴대폰번호">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-lg-3 col-form-label">Email</label>
+                        <div class="col-sm-9">
+                          <input type="email" class="form-control" id="inputEmail3" name="Reg_UserEmail" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="Reg_userID" class="col-lg-3 col-form-label">기타<br> 연락수단</label>
+                        <div class="col">
+                          <input type="text" class="form-control" id="Reg_UserID" name="Reg_OtherContact" placeholder="다른 연락수단이 있으면 입력해주세요">
+                        </div>
+                      </div>
+                      <div class="form-group row mt-1">
+                        <div class="col-lg-4"></div>
+                        <div class="col-auto">
+                          <button type="submit" class="btn btn-primary btn-outline-primary">회원가입 <i class="fa fa-sign-in ml-1"></i></button>
+                        </div>
+                        <div class="col-auto ml-auto">
+                          <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+
+                      </form>
+                      <%# <div class="row">
+                        <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                    </div>%>
+                  </div>
+
+                  <%# <div class="modal-body">
+                      <div class="md-form form-sm">
+                          <i class="fa fa-envelope prefix"></i>
+                          <input type="text" id="form24" class="form-control">
+                          <label for="form24">Your email</label>
+                      </div>
+
+                      <div class="md-form form-sm">
+                          <i class="fa fa-lock prefix"></i>
+                          <input type="password" id="form25" class="form-control">
+                          <label for="form25">Your password</label>
+                      </div>
+
+                      <div class="md-form form-sm">
+                          <i class="fa fa-lock prefix"></i>
+                          <input type="password" id="form26" class="form-control">
+                          <label for="form26">Repeat password</label>
+                      </div>
+
+                      <div class="text-center form-sm mt-2">
+                          <button class="btn btn-info">Sign up <i class="fa fa-sign-in ml-1"></i></button>
+                      </div>
+
+                  </div>%>
+                  <!--Footer-->
+                  <div class="modal-footer">
+                      <div class="options text-right">
+                          <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
+                      </div>
+                      <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+              <!--/.Panel 8-->
+          </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal: Login / Register Form-->
+    <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+            <!--Content-->
+            <div class="modal-content">
+
+                <!--Modal cascading tabs-->
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs tabs-2 light-blue darken-3" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fa fa-user mr-1"></i> Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fa fa-user-plus mr-1"></i> Register</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panels -->
+                    <div class="tab-content">
+                        <!--Panel 7-->
+                        <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+                            <!--Body-->
+                            <div class="modal-body mb-1">
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="text" id="form22" class="form-control">
+                                    <label for="form22">Your email</label>
+                                </div>
+
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="form23" class="form-control">
+                                    <label for="form23">Your password</label>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <button class="btn btn-info">Log in <i class="fa fa-sign-in ml-1"></i></button>
+                                </div>
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer display-footer">
+                                <div class="options text-center text-md-right mt-1">
+                                    <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
+                                    <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+                                </div>
+                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                        <!--/.Panel 7-->
+
+                        <!--Panel 8-->
+                        <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+                            <!--Body-->
+                            <div class="modal-body">
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="text" id="form24" class="form-control">
+                                    <label for="form24">Your email</label>
+                                </div>
+
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="form25" class="form-control">
+                                    <label for="form25">Your password</label>
+                                </div>
+
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="form26" class="form-control">
+                                    <label for="form26">Repeat password</label>
+                                </div>
+
+                                <div class="text-center form-sm mt-2">
+                                    <button class="btn btn-info">Sign up <i class="fa fa-sign-in ml-1"></i></button>
+                                </div>
+
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <div class="options text-right">
+                                    <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
+                                </div>
+                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        <!--/.Panel 8-->
+                    </div>
+
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!--Modal: Login / Register Form-->

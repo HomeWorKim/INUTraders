@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include ../partials/head.ejs %>
+
+</head>
+<body>
+  <%- include ../partials/header-nav.ejs %>
+    <main>
+        <!--Main layout-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="h1-responsive"><%=title%>
+                        <small class="text-muted"> <%=subtitle%> </small>
+                        <% if(isAuthenticated){%>
+                        <a href="/<%=path%>/create?page=<%=pageData.currentPage%>" class="btn btn-lg btn-outline-primary float-right font-weight-bold rounded" role="button">New</a>
+                        <%}%>
+                    </h1>
+
+                </div>
+            </div>
+
+            <hr>
+
+            <form class="my-0" action="/<%=path%>">
+              <div class="row">
+                <div class="col-sm-12 col-md-auto">
+                    <select id="ItemCategorySelect" class="custom-select mb-2 mb-sm-0 required" name="ItemCategory" required>
+                      <option value="" selected>물품 카테고리</option>
+                      <option id="전체" value="전체">전체</option>
+                      <option id="강의교재" value="강의교재">강의교재</option>
+                      <option id="일반도서" value="일반도서">일반도서</option>
+                      <option id="디지털기기" value="디지털기기">디지털기기</option>
+                      <option id="의류잡화" value="의류잡화">의류잡화</option>
+                      <option id="기타등등" value="기타등등">기타등등</option>
+                    </select>
+                    <%# <div class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-secondary active">
+                        <input type="checkbox" checked autocomplete="off"> 완료된 거래 제외
+                      </label>
+                    </div>%>
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" id="searchtext" name="search" placeholder="Search" aria-label="Search">
+                </div>
+                <div class="col col-sm-2">
+                  <button class="btn btn-outline-success col-12" type="submit"><i class="fa fa-search"></i>검색</button>
+                </div>
+              </div>
+            </form>
+            <hr>
+            Category
+            <hr>
+<%
+tradeData.forEach(function (trade, i, arr){
+      if(i%3 == 0){ %>
+        <div class="row wow">
+        <%
+      }
+      %>
+                <!--First column-->
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+
+                    <!--Card-->
+                    <% if(trade.TradeStatus == 1){ %>
+                    <div class="card mb-3 border border-primary rounded">
+                      <div class="header primary-color text-center text-light bg-primary">
+                        <h6><%=trade.TradeCategory%></h6>
+                      </div>
+                      <% } else{%>
+                        <div class="card mb-3 border border-dark rounded">
+                          <div class="header bg-dark text-center text-white">
+                            <h6>완료</h6>
+                          </div>
+                        <% } %>
+                        <!--Card image-->
+                        <img class="img-fluid" src="/images/main_2.jpg" alt="Card image cap">
+
+                        <!--Card content-->
+                        <div class="card-body">
+
+                        <div class="row justify-content-between">
+                          <div class="col-auto mr-auto">
+                            <h5><span class="badge  badge-success"><%=trade.ItemCategory%></span></h5>
+                          </div>
+                        </div>
+                            <!--Title-->
+                            <h4 class="card-title text-primary h4-responsive font-weight-bold text-truncate"><span class="badge badge-primary">I have</span> <%=trade.Ihave%></h4>
+                            <h4 class="card-title text-danger h4-responsive font-weight-bold text-truncate"><span class="badge badge-danger">I want</span> <%=trade.Iwant%></h4>
+                            <!--Text-->
+                            <p class="text-truncate"><%=trade.Title%>
+                            </p>
+                            <a href="/<%=path%>/<%=trade.TradeID%><%=urlQuery%><%=pageData.currentPage%>" class="btn btn btn-outline-primary btn-lg btn-block" role="button"><strong>자세히</strong></a>
+
+                        </div>
+                        <div class="card-footer">
+                          <div class="float-left"><strong><%=trade.NickName%></strong></div>
+                          <div class="text-muted float-right"><i class="fa fa-clock-o"></i> <%=new Date(trade.CreatedDate).toLocaleDateString();%></div>
+                        </div>
+                    </div>
+                    <!--/.Card-->
+
+                </div>
+                <!--/.First column-->
+<% if(i%3 == 2 || i == arr.length-1 ) { %>
+</div>
+<!--/.First row-->
+<%
+}
+});
+%>
+            <hr>
+            <!--Pagination -->
+<nav class="my-4">
+    <ul class="pagination justify-content-center">
+
+        <!--First-->
+        <% if(pageData.currentPage != 1){ %>
+            <li class="page-item"><a class="page-link" href="/<%=path%><%=urlQuery%><%=1%>">First</a></li>
+
+            <!--Arrow left-->
+            <li class="page-item">
+                <a class="page-link" aria-label="Previous" href="/<%=path%><%=urlQuery%><%=pageData.currentPage-1%>">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+        <% } else{ %>
+            <li class="page-item disabled"><a class="page-link">First</a></li>
+
+            <!--Arrow left-->
+            <li class="page-item disabled">
+                <a class="page-link" aria-label="Previous" href="/<%=path%><%=urlQuery%><%=pageData.currentPage-1%>">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+          <% } %>
+        <% for(var i = pageData.firstPageNum;i<=pageData.lastPageNum;i++){ %>
+          <% if(i == pageData.currentPage){ %>
+              <li class="page-item active"><a class="page-link" href="/<%=path%><%=urlQuery%><%=i%>"><%=i%></a></li>
+            <%} else{%>
+              <li class="page-item"><a class="page-link" href="/<%=path%><%=urlQuery%><%=i%>"><%=i%></a></li>
+            <%}
+          }%>
+
+        <!--First-->
+        <% if(pageData.currentPage < pageData.totalPage){ %>
+            <!--Arrow right-->
+            <li class="page-item">
+                <a class="page-link" aria-label="Next" href="/<%=path%><%=urlQuery%><%=pageData.currentPage+1%>">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="/<%=path%><%=urlQuery%><%=pageData.totalPage%>">Last</a></li>
+        <% } else{ %>
+            <!--Arrow right-->
+            <li class="page-item disabled">
+                <a class="page-link" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+            <li class="page-item disabled"><a class="page-link" href="/<%=path%><%=urlQuery%><%=pageData.totalPage%>">Last</a></li>
+          <% } %>
+
+
+        <!--First-->
+
+    </ul>
+</nav>
+<!--/Pagination -->
+        </div>
+        <!--/.Main layout-->
+    </main>
+
+<%- include ../partials/footer.ejs %>
+
+</body>
+</html>

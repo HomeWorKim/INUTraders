@@ -1,1 +1,6 @@
-INUTraders
+INU Traders
+
+For Database Project
+
+
+- HomeWorKim
