@@ -1,63 +1,24 @@
 <!-- include summernote css/js-->
 
-
-
 <%# <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>%>
 
-
-<%# <link href="/stylesheets/summernotemdb4.css" rel="stylesheet">%>
-
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.css" rel="stylesheet">
+
 <style>
 .note-group-select-from-files {
   display: none;
 }
 </style>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.js"></script>
 
 
 <script type="text/javascript">
-$(document).ready(function() {
-  $('#summernote').summernote({
-    height : 200,
-    placeholder: '자세한 내용'
+  $(document).ready(function() {
+    $('#summernote').summernote({
+      height : 200,
+      placeholder: '자세한 내용'
+    });
   });
-});
-
-/*$(document).ready(function() {
-
-  <% if((typeof data) != "undefined"){ %>
-    if(!(/edit/.test($(location).attr('pathname')))){
-      $('#body').html('<%- data.body %>');
-    }
-  <% } %>
-});
-
-var imageinput = [];
-function uploadImage(image) {
-  var data = new FormData();
-  data.append("image", image);
-  $('.sp-loading').show();
-  $.ajax({
-    data : data,
-    type : 'POST',
-    url : '/imageupload',
-    enctype : 'multipart/form-data',
-    cache : false,
-    contentType : false,
-    processData : false,
-    success: function(data) {
-      $('#summernote').summernote('insertImage', data.secure_url, function(){
-        $('.sp-loading').hide();
-      });
-      imageinput.push(data.secure_url);
-      $('#images').val(JSON.stringify(imageinput.toString().split(",")));
-    },
-    error : function(data){
-      console.log(data);
-    }
-  });
-}
-*/
 </script>

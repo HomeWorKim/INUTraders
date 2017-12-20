@@ -1,39 +1,29 @@
 
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
 
-    <%- include ./partials/head.ejs %>
-<link rel="stylesheet" href="/stylesheets/creative.css">
-</head>
+      <%- include ./partials/head.ejs %>
+  <link rel="stylesheet" href="/stylesheets/creative.css">
+  </head>
 
-<body>
+  <body>
 <%- include ./partials/header-nav.ejs %>
-  <!--Main layout-->
-  <main class="mt-5">
-    <section id="services">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading">잘못된 접근입니다</h2>
-            <hr class="my-4">
+    <main class="mt-5">
+      <section id="services">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h2 class="section-heading">잘못된 접근입니다</h2>
+              <hr class="my-4">
+            </div>
           </div>
+          <h1><%= message %></h1>
+          <h2><%= error.status %></h2>
+          <pre><%= error.stack %></pre>
         </div>
-        <h1><%= message %></h1>
-        <h2><%= error.status %></h2>
-        <pre><%= error.stack %></pre>
       </section>
-      </div>
-
-    <!--Main container-->
-    <div class="container">
-    </div>
-    <!--Main container-->
-  </main>
-  <!--Main layout-->
-
+    </main>
 <%- include ./partials/footer.ejs %>
-
-
-</body>
+  </body>
 </html>

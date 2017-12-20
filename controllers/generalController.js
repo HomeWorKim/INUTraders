@@ -77,26 +77,5 @@ exports.getImgSrc = function(TradeData){
     }
     console.log(imgsrc);
     return imgsrc;
-    // while (m = rex.exec(str)){
-    //   urls.push(m[1]);
-    // }
-
-    // if(urls[0]){
-    //   imgsrc = urls[0];
-    // }else {
-    //   var ItemCat = TradeData.ItemCatID;
-    //   if(ItemCat == 1){
-    //     imgsrc = '/images/bookseducation.jpeg';
-    //   } else if(ItemCat == 2){
-    //     imgsrc = '/images/books.jpeg';
-    //   } else if(ItemCat == 3){
-    //     imgsrc = '/images/digitalthings.jpg';
-    //   } else if(ItemCat == 4){
-    //     imgsrc = '/images/clothes.jpeg';
-    //   } else if(ItemCat == 5){
-    //     imgsrc = '/images/things.jpeg';
-    //   }
-    // } return imgsrc;
-
 
 };

@@ -1,4 +1,3 @@
-// var mysql = require('mysql');
 var pool = require('../config/dbConnection.js');
 var general_controller = require('./generalController.js');
 var url = require('url');
@@ -6,7 +5,6 @@ const { URL, URLSearchParams } = require('url');
 
 exports.trade_list = function(req, res, option){
   var sqlQuery = general_controller.buildSearchQuery(req);
-  // console.log(req.originalUrl);
   const myURL = new URL(req.originalUrl, 'https://'+req.hostname);
   myURL.searchParams.set('page','');
   pool.getConnection(function(err, connection){

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <%- include ../partials/head.ejs %>
-
 </head>
 
 <body>
@@ -82,31 +80,31 @@
                     </div>
                     <div class="form-group row">
                       <div class="col">
-                        <label for="Reg_userID">닉네임</label>
-                        <input type="text" class="form-control" id="Reg_UserID" name="Reg_Nickname" placeholder="닉네임" value="<%=userData.NickName%>" required>
+                        <label for="Reg_Nickname">닉네임</label>
+                        <input type="text" class="form-control" id="Reg_Nickname" name="Reg_Nickname" placeholder="닉네임" value="<%=userData.NickName%>" required>
                       </div>
                     </div>
                     <div class="form-group row">
                       <div class="col">
-                        <label for="Reg_userID">전화번호</label>
-                        <input type="text" class="form-control" id="Reg_UserID" name="Reg_UserPhone" placeholder="전화번호" value="<%=userData.UserPhone%>">
+                        <label for="Reg_UserPhone">전화번호</label>
+                        <input type="text" class="form-control" id="Reg_UserPhone" name="Reg_UserPhone" placeholder="전화번호" value="<%=userData.UserPhone%>">
                       </div>
                     </div>
                     <div class="form-group row">
                       <div class="col">
-                        <label for="inputEmail3">이메일</label>
-                        <input type="email" class="form-control" id="inputEmail3" name="Reg_UserEmail" placeholder="이메일" value="<%=userData.UserEmail%>">
+                        <label for="Reg_UserEmail">이메일</label>
+                        <input type="email" class="form-control" id="Reg_UserEmail" name="Reg_UserEmail" placeholder="이메일" value="<%=userData.UserEmail%>">
                       </div>
                     </div>
                     <div class="form-group row">
                       <div class="col">
-                        <label for="Reg_userID">기타 연락수단</label>
-                        <input type="text" class="form-control" id="Reg_UserID" name="Reg_OtherContact" placeholder="다른 연락수단이 있으면 입력해주세요" value="<%=userData.OtherContact%>">
+                        <label for="Reg_OtherContact">기타 연락수단</label>
+                        <input type="text" class="form-control" id="Reg_OtherContact" name="Reg_OtherContact" placeholder="다른 연락수단이 있으면 입력해주세요" value="<%=userData.OtherContact%>">
                       </div>
                     </div>
                     <div class="form-group row">
                       <div class="col">
-                        <label for="Reg_userID">자기소개</label>
+                        <label for="Reg_Introduce">자기소개</label>
                         <textarea type="text" class="form-control" id="Reg_Introduce" name="Reg_Introduce" placeholder="간단한 소개"><%=userData.Introduce%></textarea>
                       </div>
                     </div>
@@ -129,7 +127,6 @@
 <!--Main layout-->
 
 <%- include ../partials/footer.ejs %>
-
 
 </body>
 </html>

@@ -53,7 +53,6 @@ router.post('/signup', passport.authenticate('local-signup', {
 
  // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
-
     // if user is authenticated in the session, carry on
     if (req.isAuthenticated())
         return next();
@@ -61,30 +60,5 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 
-// router.post('/login', function (req, res, next) {
-//   pool.getConnection(function(err, connection){
-//     if(err) throw err;
-//     else{
-//       var user_id = req.body.username;
-//       var password =   req.body.password;
-//       connection.query('select *from `user` where `user_id` = ?', user_id, function (err, result) {
-//         if (err) {
-//           console.log('err :' + err);
-//         } else {
-//           if (result.length === 0) {
-//             res.json({success: false, msg: '해당 유저가 존재하지 않습니다.'})
-//           } else {
-//             if (!bcrypt.compareSync(password, result[0].password)) {
-//               res.json({success: false, msg: '비밀번호가 일치하지 않습니다.'})
-//             } else {
-//               res.json({success: true})
-//             }
-//           }
-//         }
-//       });
-//       connection.release();
-//     }
-//   });
-// });
 
 module.exports = router;

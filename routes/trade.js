@@ -104,7 +104,6 @@ router.put('/:tradeCategory/:TradeID', function(req, res){
 
 //For Comment
 router.post('/:tradeCategory/:TradeID/comment', function(req, res){
-	//selectOption(req.params.tradeCategory);
 	trade_controller.trade_comment_post(req, res, Option);
 });
 

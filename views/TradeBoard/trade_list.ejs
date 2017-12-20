@@ -18,10 +18,8 @@
                         <a href="/<%=path%>/create?page=<%=pageData.currentPage%>" class="btn btn-lg btn-outline-primary float-right font-weight-bold rounded" role="button">New</a>
                         <%}%>
                     </h1>
-
                 </div>
             </div>
-
             <hr>
 
             <form class="my-0" action="/<%=path%>">
@@ -53,7 +51,6 @@
             <hr>
             <div class="col-md-12">
             <strong class="text-primary col"> 물품 카테고리  </strong>
-
               <a href="/<%=path%>?ItemCategory=전체&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold b">전체</a>
               <a href="/<%=path%>?ItemCategory=강의교재&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold">강의교재</a>
               <a href="/<%=path%>?ItemCategory=일반도서&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold">일반도서</a>
@@ -62,14 +59,13 @@
               <a href="/<%=path%>?ItemCategory=기타등등&search=<%=queryData.search%>" class="btn btn-primary font-weight-bold">기타등등</a>
             </div>
             <hr>
-<%
-tradeData.forEach(function (trade, i, arr){
-      if(i%3 == 0){ %>
-        <div class="row wow">
-        <%
-      }
-      %>
-                <!--First column-->
+            <%
+            tradeData.forEach(function (trade, i, arr){
+              if(i%3 == 0){ %>
+                <div class="row wow">
+                <%
+              }
+              %>
                 <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
                     <!--Card-->
                     <% if(trade.TradeStatus == 1){ %>
@@ -100,7 +96,6 @@ tradeData.forEach(function (trade, i, arr){
                             <p class="text-truncate"><%=trade.Title%>
                             </p>
                             <a href="/<%=path%>/<%=trade.TradeID%><%=urlQuery%><%=pageData.currentPage%>" class="btn btn btn-outline-primary btn-lg btn-block" role="button"><strong>자세히</strong></a>
-
                         </div>
                         <div class="card-footer">
                           <div class="float-left"><strong><%=trade.NickName%></strong></div>
@@ -108,78 +103,71 @@ tradeData.forEach(function (trade, i, arr){
                         </div>
                     </div>
                     <!--/.Card-->
-
                 </div>
-                <!--/.First column-->
-<% if(i%3 == 2 || i == arr.length-1 ) { %>
-</div>
-<!--/.First row-->
-<%
-}
-});
-%>
+                <% if(i%3 == 2 || i == arr.length-1 ) { %>
+                </div>
+              <%
+              }
+              });
+              %>
             <hr>
+
             <!--Pagination -->
-<nav class="my-4">
-    <ul class="pagination justify-content-center">
+            <nav class="my-4">
+                <ul class="pagination justify-content-center">
+                    <!--First-->
+                    <% if(pageData.currentPage != 1){ %>
+                        <li class="page-item"><a class="page-link" href="/<%=path%><%=urlQuery%><%=1%>">First</a></li>
 
-        <!--First-->
-        <% if(pageData.currentPage != 1){ %>
-            <li class="page-item"><a class="page-link" href="/<%=path%><%=urlQuery%><%=1%>">First</a></li>
+                        <!--Arrow left-->
+                        <li class="page-item">
+                            <a class="page-link" aria-label="Previous" href="/<%=path%><%=urlQuery%><%=pageData.currentPage-1%>">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                    <% } else{ %>
+                        <li class="page-item disabled"><a class="page-link">First</a></li>
 
-            <!--Arrow left-->
-            <li class="page-item">
-                <a class="page-link" aria-label="Previous" href="/<%=path%><%=urlQuery%><%=pageData.currentPage-1%>">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </li>
-        <% } else{ %>
-            <li class="page-item disabled"><a class="page-link">First</a></li>
+                        <!--Arrow left-->
+                        <li class="page-item disabled">
+                            <a class="page-link" aria-label="Previous" href="/<%=path%><%=urlQuery%><%=pageData.currentPage-1%>">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                      <% } %>
+                    <% for(var i = pageData.firstPageNum;i<=pageData.lastPageNum;i++){ %>
+                      <% if(i == pageData.currentPage){ %>
+                          <li class="page-item active"><a class="page-link" href="/<%=path%><%=urlQuery%><%=i%>"><%=i%></a></li>
+                        <%} else{%>
+                          <li class="page-item"><a class="page-link" href="/<%=path%><%=urlQuery%><%=i%>"><%=i%></a></li>
+                        <%}
+                      }%>
 
-            <!--Arrow left-->
-            <li class="page-item disabled">
-                <a class="page-link" aria-label="Previous" href="/<%=path%><%=urlQuery%><%=pageData.currentPage-1%>">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </li>
-          <% } %>
-        <% for(var i = pageData.firstPageNum;i<=pageData.lastPageNum;i++){ %>
-          <% if(i == pageData.currentPage){ %>
-              <li class="page-item active"><a class="page-link" href="/<%=path%><%=urlQuery%><%=i%>"><%=i%></a></li>
-            <%} else{%>
-              <li class="page-item"><a class="page-link" href="/<%=path%><%=urlQuery%><%=i%>"><%=i%></a></li>
-            <%}
-          }%>
-
-        <!--First-->
-        <% if(pageData.currentPage < pageData.totalPage){ %>
-            <!--Arrow right-->
-            <li class="page-item">
-                <a class="page-link" aria-label="Next" href="/<%=path%><%=urlQuery%><%=pageData.currentPage+1%>">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="/<%=path%><%=urlQuery%><%=pageData.totalPage%>">Last</a></li>
-        <% } else{ %>
-            <!--Arrow right-->
-            <li class="page-item disabled">
-                <a class="page-link" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </li>
-            <li class="page-item disabled"><a class="page-link" href="/<%=path%><%=urlQuery%><%=pageData.totalPage%>">Last</a></li>
-          <% } %>
-
-
-        <!--First-->
-
-    </ul>
-</nav>
-<!--/Pagination -->
+                    <!--First-->
+                    <% if(pageData.currentPage < pageData.totalPage){ %>
+                        <!--Arrow right-->
+                        <li class="page-item">
+                            <a class="page-link" aria-label="Next" href="/<%=path%><%=urlQuery%><%=pageData.currentPage+1%>">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="/<%=path%><%=urlQuery%><%=pageData.totalPage%>">Last</a></li>
+                    <% } else{ %>
+                        <!--Arrow right-->
+                        <li class="page-item disabled">
+                            <a class="page-link" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                        <li class="page-item disabled"><a class="page-link" href="/<%=path%><%=urlQuery%><%=pageData.totalPage%>">Last</a></li>
+                      <% } %>
+                </ul>
+            </nav>
+            <!--/Pagination -->
         </div>
         <!--/.Main layout-->
     </main>

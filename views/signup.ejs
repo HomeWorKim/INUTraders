@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <%- include ./partials/head.ejs %>
-
+  <%- include ./partials/head.ejs %>
 </head>
 
 <body>
@@ -35,35 +33,35 @@
                 <label for="Reg_Password" class="col-lg-3 col-form-label">비밀번호</label>
                 <div class="col">
                   <input type="password" class="form-control" id="Reg_Password" name="Reg_Password" placeholder="비밀번호" required>
-                  <small id="emailHelp" class="form-text text-muted">비밀번호는 암호화되어 안전하게 저장됩니다.</small>
+                  <small id="Reg_Passwordtext" class="form-text text-muted">비밀번호는 암호화되어 안전하게 저장됩니다.</small>
                 </div>
               </div>
               <div class="form-group row">
-                <label for="Reg_userID" class="col-lg-3 col-form-label">닉네임</label>
+                <label for="Reg_Nickname" class="col-lg-3 col-form-label">닉네임</label>
                 <div class="col">
-                  <input type="text" class="form-control" id="Reg_UserID" name="Reg_Nickname" placeholder="닉네임" required>
+                  <input type="text" class="form-control" id="Reg_Nickname" name="Reg_Nickname" placeholder="닉네임" required>
                 </div>
               </div>
               <div class="form-group row">
-                <label for="Reg_userID" class="col-lg-3 col-form-label">전화번호</label>
+                <label for="Reg_UserPhone" class="col-lg-3 col-form-label">전화번호</label>
                 <div class="col">
-                  <input type="text" class="form-control" id="Reg_UserID" name="Reg_UserPhone" placeholder="전화번호">
+                  <input type="text" class="form-control" id="Reg_UserPhone" name="Reg_UserPhone" placeholder="전화번호">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputEmail3" class="col-lg-3 col-form-label">이메일</label>
+                <label for="Reg_UserEmail" class="col-lg-3 col-form-label">이메일</label>
                 <div class="col">
-                  <input type="email" class="form-control" id="inputEmail3" name="Reg_UserEmail" placeholder="이메일">
+                  <input type="email" class="form-control" id="Reg_UserEmail" name="Reg_UserEmail" placeholder="이메일">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="Reg_userID" class="col-lg-3 col-form-label">기타 연락수단</label>
+                <label for="Reg_OtherContact" class="col-lg-3 col-form-label">기타 연락수단</label>
                 <div class="col">
-                  <input type="text" class="form-control" id="Reg_UserID" name="Reg_OtherContact" placeholder="다른 연락수단이 있으면 입력해주세요">
+                  <input type="text" class="form-control" id="Reg_OtherContact" name="Reg_OtherContact" placeholder="다른 연락수단이 있으면 입력해주세요">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="Reg_userID" class="col-lg-3 col-form-label">자기소개</label>
+                <label for="Reg_Introduce" class="col-lg-3 col-form-label">자기소개</label>
                 <div class="col">
                   <textarea type="text" class="form-control" id="Reg_Introduce" name="Reg_Introduce" placeholder="간단한 소개"></textarea>
                 </div>

@@ -11,214 +11,208 @@
         <div class="h3 font-weight-bold">
           <%=tradeData.TradeCategory%>
         </div><br>
-    <div class="row">
-      <div class="col-md-12">
-      <i class="material-icons" style="vertical-align: middle">local_mall</i>
-      <label class="col-form-label">거래 물품</label>
-      <div class="row">
-        <div class="col-lg-8">
-          <h4 class="card-title text-primary h4-responsive"><span class="badge badge-primary">I have</span>
-            <strong><%=tradeData.Ihave%></strong></h4>
-        </div>
-        <div class="col-lg-8">
-          <h4 class="card-title text-danger h4-responsive"><span class="badge badge-danger">I want</span> <strong><%=tradeData.Iwant%></strong></h4>
-        </div>
-      </div>
-    </div>
-  </div>
-    <hr>
-    <div class="row">
-      <div class="col-lg-8">
-    <div>
-        <div class="row justify-content-between">
-          <div class="col-auto mr-auto">
-            <i class="material-icons" style="vertical-align: middle">label</i>
-            강의자료 <%=tradeData.ItemCatID%>
-          </div>
-          <div class="col-auto ml-auto">
-            <div class="text-muted"><i class="fa fa-clock-o"></i> <%=new Date(tradeData.CreatedDate).toLocaleDateString();%></div>
-          </div>
-        </div>
-        <br>
         <div class="row">
           <div class="col-md-12">
-              <h3 class="h4-responsive font-weight-bold"><%=tradeData.Title%> </h3>
-          </div>
-        </div><br>
-        <%- tradeData.Content%>
-    </div>
-    <br>
-    <br><br><br>
-    <%if(tradeData.TradeStatus == 0){%>
-        <p class="text-muted text-center">-- 완료된 거래입니다 --</p>
-    <%}%>
-    <div class="row justify-content-end">
-      <%if(isAuthenticated && ((tradeData.AuthorID == currentUser.UserID) || (currentUser.IsAdmin == 1))){ %>
-    <div class="col-auto ml-auto">
-      <% if(tradeData.TradeStatus == 1){ %>
-      <button type="submit" class="btn btn-success font-weight-bold" data-toggle="modal" data-target="#modalConfirmTradeDone">거래완료</button>
-      <% } %>
-      <a href="/<%=path%>/<%=tradeData.TradeID%>/update<%=urlQuery%>">
-      <button type="button" class="btn btn-success font-weight-bold" >수정</button></a>
-      <button type="button" class="btn btn-success font-weight-bold" data-toggle="modal" data-target="#modalConfirmDelete">삭제</button>
-    </div>
-    <%}%>
-  </div>
-  <div class="col-auto">
-    <a href="/<%=path%><%=urlQuery%>">
-    <button type="button" class="btn btn-lg btn-block btn-primary active font-weight-bold">목록으로</button></a>
-  </div>
-  </div>
-  <div class="col-lg-4">
-          <!-- Nav tabs -->
-    <ul class="nav nav-tabs nav-justified " role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#panel5" role="tab"><i class="fa fa-user"></i>  작성자</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#panel6" role="tab"><i class="fa fa-phone" aria-hidden="true"></i> 연락처</a>
-        </li>
-    </ul>
-    <div class="tab-content">
-      <div class="tab-pane fade in show active" id="panel5" role="tabpanel">
-          <p></p>
-          <p class="text-primary font-weight-bold h5"> <%=tradeData.NickName%></p><p></p>
-          <p><%=tradeData.Introduce%></p>
-      </div>
-      <div class="tab-pane fade" id="panel6" role="tabpanel">
-          <br>
-          <%if(isAuthenticated){ %>
-            <div class="list-group">
-              <%if(tradeData.TradeStatus == 1){%>
-              <% if(tradeData.UserPhone){%>
-                <strong class="text-dark">전화번호</strong>
-                <p><%=tradeData.UserPhone%></p>
-              <%}%>
-              <% if(tradeData.UserEmail){%>
-                <strong class="text-dark">Email</strong>
-                <p><%=tradeData.UserEmail%></p>
-              <%}%>
-              <% if(tradeData.OtherContact){%>
-                <strong class="text-dark">기타 연락수단</strong>
-                <p><%=tradeData.OtherContact%></p>
-              <%}
-                if(!tradeData.UserPhone && !tradeData.UserEmail && !tradeData.OtherContact){%>
-                  <p class="text-info">작성자의 연락처 정보가 존재하지 않습니다.</p>
-              <%}%>
-            <%} else {%>
-                <p>거래가 완료되어 연락처 정보를 <br>공개하지 않습니다.</p>
-              <%}%>
+            <i class="material-icons" style="vertical-align: middle">local_mall</i>
+            <label class="col-form-label">거래 물품</label>
+            <div class="row">
+              <div class="col-lg-8">
+                <h4 class="card-title text-primary h4-responsive"><span class="badge badge-primary">I have</span>
+                <strong><%=tradeData.Ihave%></strong></h4>
               </div>
-      <% }else{%>
-           <p>연락처를 보기 위해 로그인이 필요합니다.</p>
-          <%}%>
-
-      </div>
-    </div>
-  <br>
-  </div>
-</div>
+              <div class="col-lg-8">
+                <h4 class="card-title text-danger h4-responsive"><span class="badge badge-danger">I want</span> <strong><%=tradeData.Iwant%></strong></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-lg-8">
+            <div>
+              <div class="row justify-content-between">
+                <div class="col-auto mr-auto">
+                  <i class="material-icons" style="vertical-align: middle">label</i>
+                  강의자료 <%=tradeData.ItemCatID%>
+                </div>
+                <div class="col-auto ml-auto">
+                  <div class="text-muted"><i class="fa fa-clock-o"></i> <%=new Date(tradeData.CreatedDate).toLocaleDateString();%></div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="h4-responsive font-weight-bold"><%=tradeData.Title%> </h3>
+                </div>
+              </div><br>
+              <%- tradeData.Content%>
+            </div>
+            <br><br><br><br>
+            <%if(tradeData.TradeStatus == 0){%>
+              <p class="text-muted text-center">-- 완료된 거래입니다 --</p>
+              <%}%>
+              <div class="row justify-content-end">
+                <%if(isAuthenticated && ((tradeData.AuthorID == currentUser.UserID) || (currentUser.IsAdmin == 1))){ %>
+                  <div class="col-auto ml-auto">
+                  <% if(tradeData.TradeStatus == 1){ %>
+                    <button type="submit" class="btn btn-success font-weight-bold" data-toggle="modal" data-target="#modalConfirmTradeDone">거래완료</button>
+                    <% } %>
+                    <a href="/<%=path%>/<%=tradeData.TradeID%>/update<%=urlQuery%>">
+                    <button type="button" class="btn btn-success font-weight-bold" >수정</button></a>
+                    <button type="button" class="btn btn-success font-weight-bold" data-toggle="modal" data-target="#modalConfirmDelete">삭제</button>
+                    </div>
+                    <%}%>
+              </div>
+              <div class="col-auto">
+                <a href="/<%=path%><%=urlQuery%>">
+                  <button type="button" class="btn btn-lg btn-block btn-primary active font-weight-bold">목록으로</button></a>
+              </div>
+          </div>
+          <div class="col-lg-4">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs nav-justified " role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#panel5" role="tab"><i class="fa fa-user"></i>  작성자</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#panel6" role="tab"><i class="fa fa-phone" aria-hidden="true"></i> 연락처</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade in show active" id="panel5" role="tabpanel">
+                <p></p>
+                <p class="text-primary font-weight-bold h5"> <%=tradeData.NickName%></p><p></p>
+                <p><%=tradeData.Introduce%></p>
+              </div>
+              <div class="tab-pane fade" id="panel6" role="tabpanel">
+                <br>
+                <%if(isAuthenticated){ %>
+                  <div class="list-group">
+                  <%if(tradeData.TradeStatus == 1){%>
+                    <% if(tradeData.UserPhone){%>
+                      <strong class="text-dark">전화번호</strong>
+                      <p><%=tradeData.UserPhone%></p>
+                      <%}%>
+                      <% if(tradeData.UserEmail){%>
+                        <strong class="text-dark">Email</strong>
+                        <p><%=tradeData.UserEmail%></p>
+                        <%}%>
+                        <% if(tradeData.OtherContact){%>
+                          <strong class="text-dark">기타 연락수단</strong>
+                          <p><%=tradeData.OtherContact%></p>
+                          <%}
+                          if(!tradeData.UserPhone && !tradeData.UserEmail && !tradeData.OtherContact){%>
+                            <p class="text-info">작성자의 연락처 정보가 존재하지 않습니다.</p>
+                            <%}%>
+                            <%} else {%>
+                              <p>거래가 완료되어 연락처 정보를 <br>공개하지 않습니다.</p>
+                              <%}%>
+                  </div>
+                  <% }else{%>
+                    <p>연락처를 보기 위해 로그인이 필요합니다.</p>
+                  <%}%>
+              </div>
+            </div>
+            <br>
+          </div>
+        </div>
         <hr>
         <div class="row">
           <div class="col-md-12">
-          <h3><strong>Comments</strong></h3>
-          <br>
-          <ul class="list-unstyled commentlist">
-            <%commentData.forEach(function(comment, i, arr){ %>
-              <li class="media">
-                <div class="media-body">
-                  <h5 class="mt-0 mb-2 font-weight-bold"><%=comment.NickName%><small class="text-muted pull-right"><i class="fa fa-clock-o"></i> <%=new Date(comment.CreatedDate).toLocaleDateString();%></small></h5>
-                  <form class="form-group" action="/<%=path%>/<%=tradeData.TradeID%>/comment/<%=comment.CommentID%><%=urlQuery%>&_method=DELETE" method="post">
-                  <p><%=comment.CommentContent%>
+            <h3><strong>Comments</strong></h3>
+            <br>
+            <ul class="list-unstyled commentlist">
+              <%commentData.forEach(function(comment, i, arr){ %>
+                <li class="media">
+                  <div class="media-body">
+                    <h5 class="mt-0 mb-2 font-weight-bold"><%=comment.NickName%><small class="text-muted pull-right"><i class="fa fa-clock-o"></i> <%=new Date(comment.CreatedDate).toLocaleDateString();%></small></h5>
+                    <form class="form-group" action="/<%=path%>/<%=tradeData.TradeID%>/comment/<%=comment.CommentID%><%=urlQuery%>&_method=DELETE" method="post">
+                    <p><%=comment.CommentContent%>
                     <%if(isAuthenticated && ((comment.UserID == currentUser.UserID) || (currentUser.IsAdmin == 1))){ %>
                     <button type="submit" class="btn btn-success font-weight-bold pull-right">삭제</button>
-                  <%}%>
-                  </form>
-                  </p>
-
-                </div>
-              </li>
-              <br>
-          <%  });%>
-          <%if(isAuthenticated){ %>
-            <form class="form-inline" action="/<%=path%>/<%=tradeData.TradeID%>/comment<%=urlQuery%>" method="post">
-                <div class="form-group col-10">
-                  <label for="commentContent" class="bmd-label-floating">댓글 작성</label>
-                  <input name="Comment_Content" type="text" class="form-control col" id="commentContent">
-                </div>
-                <div class="form-group col-2">
-                  <span class="form-group bmd-form-group"> <!-- needed to match padding for floating labels -->
+                    <%}%>
+                    </form>
+                    </p>
+                  </div>
+                </li>
+                <br>
+                <% });%>
+              <%if(isAuthenticated){ %>
+                <form class="form-inline" action="/<%=path%>/<%=tradeData.TradeID%>/comment<%=urlQuery%>" method="post">
+                  <div class="form-group col-10">
+                    <label for="commentContent" class="bmd-label-floating">댓글 작성</label>
+                    <input name="Comment_Content" type="text" class="form-control col" id="commentContent">
+                  </div>
+                  <div class="form-group col-2">
+                    <span class="form-group bmd-form-group"> <!-- needed to match padding for floating labels -->
                     <button type="submit" class="btn btn-raised btn-primary">등록</button>
-                  </span>
-                </div>
-            </form>
-            <%}%>
-          </ul>
+                    </span>
+                  </div>
+                  </form>
+                <%}%>
+            </ul>
           </div>
         </div>
         <br>
-</div>
-</div>
-<%if(isAuthenticated && ((tradeData.AuthorID == currentUser.UserID) || (currentUser.IsAdmin == 1))){
-    if(tradeData.TradeStatus == 1){ %>
-<!--Modal: Trade Close-->
-<div class="modal fade" id="modalConfirmTradeDone" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-notify modal-info modal-sm" role="document">
-        <!--Content-->
-        <div class="modal-content text-center">
-            <!--Header-->
-            <div class="modal-header">
-              <h5 class="modal-title font-weight-bold" id="exampleModalLabel">거래 완료</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <!--Body-->
-            <div class="modal-body">
-              <i class="fa fa-check fa-4x text-success"></i><br>
-              <p class="font-weight-bold">거래를 완료 시키겠습니까?</p>
-            </div>
-            <!--Footer-->
-              <form action="/<%=path%>/<%=tradeData.TradeID%><%=urlQuery%>&_method=PUT" method="post">
-                <button type="submit" class="btn btn-lg btn-block btn-primary waves-effect waves-light font-weight-bold">거래 완료</button>
-              </form>
-        </div>
-        <!--/.Content-->
-    </div>
-</div>
-<!--Modal: Trade Delete-->
-<% } %>
-<!-- Modal: modal -->
-<div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
-      <div class="modal-content text-center">
-        <!--Header-->
-            <div class="modal-header">
-              <h5 class="modal-title font-weight-bold" id="exampleModalLabel">거래 삭제</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-              <i class="fa fa-times fa-4x text-danger"></i><br>
-              <p class="font-weight-bold">거래를 삭제 하시겠습니까?</p>
-            </div>
-            <!--Footer-->
-            <form action="/trade/<%=tradeCategory%>/<%=tradeData.TradeID%><%=urlQuery%>&_method=DELETE" method="post">
-              <button type="submit" class="btn btn-danger font-weight-bold btn-lg btn-block">삭제</button>
-            </form>
       </div>
     </div>
-</div>
-<!-- Modal: modal -->
-<%}%>
-
-
-
+    <%if(isAuthenticated && ((tradeData.AuthorID == currentUser.UserID) || (currentUser.IsAdmin == 1))){
+    if(tradeData.TradeStatus == 1){ %>
+      <!--Modal: Trade Close-->
+      <div class="modal fade" id="modalConfirmTradeDone" tabindex="-1" role="dialog" aria-labelledby="TradeDone" aria-hidden="true">
+          <div class="modal-dialog modal-notify modal-info modal-sm" role="document">
+              <!--Content-->
+              <div class="modal-content text-center">
+                  <!--Header-->
+                  <div class="modal-header">
+                    <h5 class="modal-title font-weight-bold" id="TradeDone">거래 완료</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <!--Body-->
+                  <div class="modal-body">
+                    <i class="fa fa-check fa-4x text-success"></i><br>
+                    <p class="font-weight-bold">거래를 완료 시키겠습니까?</p>
+                  </div>
+                  <!--Footer-->
+                    <form action="/<%=path%>/<%=tradeData.TradeID%><%=urlQuery%>&_method=PUT" method="post">
+                      <button type="submit" class="btn btn-lg btn-block btn-primary waves-effect waves-light font-weight-bold">거래 완료</button>
+                    </form>
+              </div>
+              <!--/.Content-->
+          </div>
+      </div>
+      <!--Modal: Trade Delete-->
+      <% } %>
+      <!-- Modal: modal -->
+      <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="ConfirmDelete" aria-hidden="true">
+          <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+            <div class="modal-content text-center">
+              <!--Header-->
+                  <div class="modal-header">
+                    <h5 class="modal-title font-weight-bold" id="ConfirmDelete">거래 삭제</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                    <i class="fa fa-times fa-4x text-danger"></i><br>
+                    <p class="font-weight-bold">거래를 삭제 하시겠습니까?</p>
+                  </div>
+                  <!--Footer-->
+                  <form action="/trade/<%=tradeCategory%>/<%=tradeData.TradeID%><%=urlQuery%>&_method=DELETE" method="post">
+                    <button type="submit" class="btn btn-danger font-weight-bold btn-lg btn-block">삭제</button>
+                  </form>
+            </div>
+          </div>
+      </div>
+      <!-- Modal: modal -->
+      <%}%>
     </main>
 
 <%- include ../partials/footer.ejs %>
 <%- include ../partials/tradeDetail.ejs %>
-</body>
+  </body>
 
 </html>

@@ -1,8 +1,8 @@
 <script>
-<%if(queryData.ItemCategory){%>
-  document.getElementById("<%=queryData.ItemCategory%>").selected=true;
-  <%}
-if(queryData.search){%>
-  document.getElementById("searchtext").value = "<%=queryData.search%>";
-<%}%>
+  <%if(queryData.ItemCategory){%>
+    document.getElementById("<%=queryData.ItemCategory%>").selected=true;
+    <%}
+  if(queryData.search){%>
+    document.getElementById("searchtext").value = "<%=queryData.search%>";
+  <%}%>
 </script>

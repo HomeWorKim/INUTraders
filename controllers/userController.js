@@ -7,8 +7,6 @@ exports.user_profile_get = function(req, res){
   pool.getConnection(function(err, connection){
     if(err) throw err;
     else{
-      // const myURL = new URL(req.originalUrl, 'https://'+req.hostname);
-
       connection.query('SELECT * FROM INUUser WHERE UserID = ?', req.params.UserID,  function(err, result, fields){
         if(err) throw err;
           var redirectBack = general_controller.getRedirecturl(req);
@@ -16,7 +14,6 @@ exports.user_profile_get = function(req, res){
           res.render('../views/user/profile', {
             userData: result[0],
             BackURL : redirectBack
-            // urlQuery : myURL.search
           });
         });
     connection.release();

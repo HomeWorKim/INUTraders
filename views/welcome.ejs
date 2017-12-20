@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <%- include ./partials/head.ejs %>
-
+  <%- include ./partials/head.ejs %>
 </head>
 
 <body>
@@ -12,26 +10,23 @@
   <main class="mt-5">
     <!--Main container-->
     <div class="container">
-        <!--Grid row-->
-        <div class="row">
-          <div class="col-lg-12">
-              <div class="jumbotron">
-                <h1 class="display-3 font-weight-bold text-dark">환영합니다!</h1>
-                <p class="lead"></p>
-                <hr class="my-4">
-                <p class="h4">INU Traders에 가입 되셨습니다.</p>
-                <br><br>
-                <p class="lead">
-                  <a class="btn btn-primary btn-lg" href="/" role="button">메인 화면으로</a>
-                  <a class="btn btn-primary btn-lg" href="/trade/all" role="button">거래 보러 가기</a>
-                </p>
-              </div>
+      <!--Grid row-->
+      <div class="row">
+        <div class="col-lg-12">
+            <div class="jumbotron">
+              <h1 class="display-3 font-weight-bold text-dark">환영합니다!</h1>
+              <p class="lead"></p>
+              <hr class="my-4">
+              <p class="h4">INU Traders에 가입 되셨습니다.</p>
+              <br><br>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="/" role="button">메인 화면으로</a>
+                <a class="btn btn-primary btn-lg" href="/trade/all" role="button">거래 보러 가기</a>
+              </p>
             </div>
-
-
-        </div>
-        <!--Grid row-->
-
+          </div>
+      </div>
+      <!--Grid row-->
     </div>
     <!--Main container-->
   </main>
@@ -39,11 +34,10 @@
 
 <%- include ./partials/footer.ejs %>
 
-
 <!--Script for Active Nav Button -->
-<script>
-$("#btn-Home").addClass('active');
-</script>
+  <script>
+  $("#btn-Home").addClass('active');
+  </script>
 
 </body>
 </html>
