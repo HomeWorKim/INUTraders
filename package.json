@@ -2,7 +2,7 @@
   "name": "inutraders",
   "version": "1.0.0",
   "private": true,
-  "engines" : {
+  "engines": {
     "node": "10.13.0"
   },
   "scripts": {
@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "async": "^2.6.0",
-    "bcrypt": "^1.0.3",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.18.2",
     "connect-flash": "^0.1.1",
