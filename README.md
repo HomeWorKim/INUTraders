@@ -1,4 +1,4 @@
-![](screenshots/INUTraders_cr.jpg "INU Traders")
+[]![INU Traders](screenshots/INUTraders_cr.jpg "INU Traders")](https://inutraders.herokuapp.com/)
 
 # INU Traders
 
